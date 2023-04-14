@@ -11,6 +11,7 @@ class Ctx {
   width: number;
   height: number;
   mouse: Mouse;
+  applyCss: Function;
   
   constructor(isNew_ID: boolean | string, isFullScreen: boolean, RAINBOW?: string) {
 
@@ -25,7 +26,7 @@ class Ctx {
     }
 
     // mouse
-    this.mouse = new Vector() as Mouse;
+    this.mouse = new Vector(0, 0) as Mouse;
     this.mouse.onScreen = false;
 
     this.canvas.addEventListener("mousemove", (event) => {
@@ -33,8 +34,8 @@ class Ctx {
       const canvasRect = this.canvas.getBoundingClientRect();
       const mousePage = new Vector() ["search"] (event, "client");
       const mouse = new Vector(canvasRect.left, canvasRect.top) ["-"] (mousePage)();
-      this.mouse.x = mouse.x;
-      this.mouse.y = mouse.y;
+      this.mouse.x = -mouse.x;
+      this.mouse.y = -mouse.y;
     });
 
     this.canvas.addEventListener("mouseleave", () => this.mouse.onScreen = false);
@@ -61,7 +62,6 @@ class Ctx {
 
     // apply for lazy peaple
     if (isFullScreen) {
-      document.body.style.background = "rgb(30, 30, 30)";
       document.body.style.margin = "0";
       document.body.style.padding = "0";
       document.body.style.overflow = "hidden";

@@ -1,7 +1,7 @@
 class Time {
 
     constructor() {
-
+        
         this.date = new Date();
         this.startTime = this.date.getTime();
         this.timeSinceStart = 0;

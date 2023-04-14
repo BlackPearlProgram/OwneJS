@@ -12,15 +12,15 @@ var Ctx = /** @class */ (function () {
             this.ctx = this.canvas.getContext("2d");
         }
         // mouse
-        this.mouse = new Vector();
+        this.mouse = new Vector(0, 0);
         this.mouse.onScreen = false;
         this.canvas.addEventListener("mousemove", function (event) {
             _this.mouse.onScreen = true;
             var canvasRect = _this.canvas.getBoundingClientRect();
             var mousePage = new Vector()["search"](event, "client");
             var mouse = new Vector(canvasRect.left, canvasRect.top)["-"](mousePage)();
-            _this.mouse.x = mouse.x;
-            _this.mouse.y = mouse.y;
+            _this.mouse.x = -mouse.x;
+            _this.mouse.y = -mouse.y;
         });
         this.canvas.addEventListener("mouseleave", function () { return _this.mouse.onScreen = false; });
         this.canvas.addEventListener("mouseenter", function () { });
@@ -49,7 +49,6 @@ var Ctx = /** @class */ (function () {
         }
         // apply for lazy peaple
         if (isFullScreen) {
-            document.body.style.background = "rgb(30, 30, 30)";
             document.body.style.margin = "0";
             document.body.style.padding = "0";
             document.body.style.overflow = "hidden";

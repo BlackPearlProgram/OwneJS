@@ -94,9 +94,6 @@ class Vector {
         function globalSearch() {
             if(object.x) return new Vector(object.x, object.y);
             if(object.clientX) return new Vector(object.clientX, object.clientY);
-            console.warn(
-                `Vector.js function: 'search' \nVector has no know values.`
-            );
         }
 
         if(typeof prefix === "string") {// suffix: 0 -> XY ; 1 -> WwidthHeight ; 2 -> LeftTop
@@ -129,19 +126,19 @@ class Vector {
             
             if(isScalar === true) {
                 const newVec = this.operation(new Vector(
-                    vector.x + this.x,
-                    vector.x + this.y,
-                    vector.x + this.z,
-                    vector.x + this.w
+                    this.x + vector.x,
+                    this.y + vector.x,
+                    this.z + vector.x,
+                    this.w + vector.x
                 ));
                 return this ["copy<"] (newVec);
             }
             
             const newVec = this.operation(new Vector(
-                vector.x + this.x,
-                vector.y + this.y,
-                vector.z + this.z,
-                vector.w + this.w
+                this.x + vector.x,
+                this.y + vector.y,
+                this.z + vector.z,
+                this.w + vector.w
             ));
             return this ["copy<"] (newVec);
         }
@@ -155,17 +152,17 @@ class Vector {
             
             if(isScalar === true) 
                 return this.operation(new Vector(
-                    vector.x + this.x,
-                    vector.x + this.y,
-                    vector.x + this.z,
-                    vector.x + this.w
+                    this.x + vector.x,
+                    this.y + vector.x,
+                    this.z + vector.x,
+                    this.w + vector.x
                 ));
             
             return this.operation(new Vector(
-                vector.x + this.x,
-                vector.y + this.y,
-                vector.z + this.z,
-                vector.w + this.w
+                this.x + vector.x,
+                this.y + vector.y,
+                this.z + vector.z,
+                this.w + vector.w
             ));
         }
     }
@@ -178,19 +175,19 @@ class Vector {
             
             if(isScalar === true) {
                 const newVec = this.operation(new Vector(
-                    vector.x - this.x,
-                    vector.x - this.y,
-                    vector.x - this.z,
-                    vector.x - this.w
+                    this.x - vector.x,
+                    this.y - vector.x,
+                    this.z - vector.x,
+                    this.w - vector.x
                 ));
                 return this ["copy<"] (newVec);
             }
             
             const newVec = this.operation(new Vector(
-                vector.x - this.x,
-                vector.y - this.y,
-                vector.z - this.z,
-                vector.w - this.w
+                this.x - vector.x,
+                this.y - vector.y,
+                this.z - vector.z,
+                this.w - vector.w
             ));
             return this ["copy<"] (newVec);
         }
@@ -204,17 +201,17 @@ class Vector {
             
             if(isScalar === true) 
                 return this.operation(new Vector(
-                    vector.x - this.x,
-                    vector.x - this.y,
-                    vector.x - this.z,
-                    vector.x - this.w
+                    this.x - vector.x,
+                    this.y - vector.x,
+                    this.z - vector.x,
+                    this.w - vector.x
                 ));
             
             return this.operation(new Vector(
-                vector.x - this.x,
-                vector.y - this.y,
-                vector.z - this.z,
-                vector.w - this.w
+                this.x - vector.x,
+                this.y - vector.y,
+                this.z - vector.z,
+                this.w - vector.w
             ));
         }
     }
@@ -227,19 +224,19 @@ class Vector {
             
             if(isScalar === true) {
                 const newVec = this.operation(new Vector(
-                    vector.x * this.x,
-                    vector.x * this.y,
-                    vector.x * this.z,
-                    vector.x * this.w
+                    this.x * vector.x,
+                    this.y * vector.x,
+                    this.z * vector.x,
+                    this.w * vector.x
                 ));
                 return this ["copy<"] (newVec);
             }
             
             const newVec = this.operation(new Vector(
-                vector.x * this.x,
-                vector.y * this.y,
-                vector.z * this.z,
-                vector.w * this.w
+                this.x * vector.x,
+                this.y * vector.y,
+                this.z * vector.z,
+                this.w * vector.w
             ));
             return this ["copy<"] (newVec);
         }
@@ -253,17 +250,17 @@ class Vector {
             
             if(isScalar === true) 
                 return this.operation(new Vector(
-                    vector.x * this.x,
-                    vector.x * this.y,
-                    vector.x * this.z,
-                    vector.x * this.w
+                    this.x * vector.x,
+                    this.y * vector.x,
+                    this.z * vector.x,
+                    this.w * vector.x
                 ));
             
             return this.operation(new Vector(
-                vector.x * this.x,
-                vector.y * this.y,
-                vector.z * this.z,
-                vector.w * this.w
+                this.x * vector.x,
+                this.y * vector.y,
+                this.z * vector.z,
+                this.w * vector.w
             ));
         }
     }
@@ -276,19 +273,19 @@ class Vector {
             
             if(isScalar === true) {
                 const newVec = this.operation(new Vector(
-                    vector.x / this.x,
-                    vector.x / this.y,
-                    vector.x / this.z,
-                    vector.x / this.w
+                    this.x / vector.x,
+                    this.y / vector.x,
+                    this.z / vector.x,
+                    this.w / vector.x
                 ));
                 return this ["copy<"] (newVec);
             }
             
             const newVec = this.operation(new Vector(
-                vector.x / this.x,
-                vector.y / this.y,
-                vector.z / this.z,
-                vector.w / this.w
+                this.x / vector.x,
+                this.y / vector.y,
+                this.z / vector.z,
+                this.w / vector.w
             ));
             return this ["copy<"] (newVec);
         }
@@ -302,27 +299,59 @@ class Vector {
             
             if(isScalar === true) 
                 return this.operation(new Vector(
-                    vector.x / this.x,
-                    vector.x / this.y,
-                    vector.x / this.z,
-                    vector.x / this.w
+                    this.x / vector.x,
+                    this.y / vector.x,
+                    this.z / vector.x,
+                    this.w / vector.x
                 ));
             
             return this.operation(new Vector(
-                vector.x / this.x,
-                vector.y / this.y,
-                vector.z / this.z,
-                vector.w / this.w
+                this.x / vector.x,
+                this.y / vector.y,
+                this.z / vector.z,
+                this.w / vector.w
             ));
         }
+    }
+
+    get "abs"() {
+        return this.operation(new Vector(
+            Math.abs(this.x),
+            Math.abs(this.y),
+            Math.abs(this.z),
+            Math.abs(this.w)
+        ));
     }
 
     get "^2"() {
         return this ["*"] (this) ();
     }
 
-    get "²"() {
-        return this ["^2"];
+    get "vec"() {
+        return new Vector(
+            this.x,
+            this.y,
+            this.z,
+            this.w
+        );
+    }
+
+    get "invert"() {
+        return this.operation(new Vector(
+            -this.x,
+            -this.y,
+            -this.z,
+            -this.w
+        ));
+    }
+
+    get "mag"() {
+        return Math.hypot(
+            this.x || 0,
+            this.y || 0,
+            this.z || 0,
+            this.w || 0
+        );
     }
 
     "lerp"(vec_or_x, y, z, w) {
